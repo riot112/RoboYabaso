@@ -12,7 +12,7 @@ var options = {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer [C7TLbB0VbkW9ee9rHzAQ1mxkbDtT6JaWvUwqJKagp/Jcv4thqaz0S1qFsGmigrBDyfCf3ak0QfsZBuKk9XrX7shkSuao1SnM4CX1vrQphARnWVMUTNDMcq5wP2xoml9rJPFMCInqhG/Q1KYr1OZ11QdB04t89/1O/w1cDnyilFU=]'
+    'Authorization': 'Bearer [L/rv6DxG3fHK7SOuQOz4mvHxX5mjN7+Axpy1IJJBg6ENFEKVV1Z+kApbryOPP77P03OF7O80JNHmjl6Ncxt/dgIml8n4UOD71jQPhI+wiEKhnagEmiqxC2sLKROX/GSrLcbxa0fei67hhh5QyfDLngdB04t89/1O/w1cDnyilFU=]'
   
   }
 }
@@ -98,7 +98,7 @@ function parseInput(rplyToken, inputStr) {
           return isNaN(parseInt(obj));
         }                   
         //鴨霸獸指令開始於此
-        if (inputStr.match('help') != null || inputStr.match('Help') != null) return randomReply() + '\n' + '\
+        if (inputStr.match('help') != null) return randomReply() + '\n' + '\
 總之你要擲骰前就先打r，後面接像是2d6，1d6+3，2d6+1d3之類的就好。  \
 \n要多筆輸出就是先空一格再打像是 *5 之類的。  \
 \n不要打成大寫D，不要逼我嗆你 \
