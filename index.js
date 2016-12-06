@@ -113,9 +113,6 @@ function parseInput(rplyToken, inputStr) {
           return coc7bp(parseInt(inputStr.split('=')[1]),parseInt(inputStr.split('(')[1]),cctext);
         }
         
-        //ccb指令開始於此
-       if (trigger == 'ccb') return coc6(mainMsg[1],mainMsg[2]);
-
         if (trigger == 'help') return randomReply() + '\n' + '\
 【擲骰BOT】你可以在聊天中進行自定義的擲骰 \
 \n 例如輸入）r 2d6+1　攻撃！\
@@ -133,12 +130,15 @@ function parseInput(rplyToken, inputStr) {
 ';
         
         //roll 指令開始於此
-        if (trigger == 'r'){        
+        if (trigger == 'r' || trigger == 'ccb' ){        
                   
           if (inputStr.split(msgSplitor).length == 1) return '\
 總之你要擲骰前就先打r，後面接像是2d6，1d6+3，2d6+1d3之類的就好。  \
 \n要多筆輸出就是先空一格再打像是 *5 之類的。  \
 \n不要打成大寫D，不要逼我嗆你';
+          //ccb指令開始於此
+       if (trigger == 'ccb') return coc6(mainMsg[1],mainMsg[2]);
+  
           if (inputStr.split(msgSplitor).length >= 3){
             
             if (mainMsg[2].split('*').length == 2) {
