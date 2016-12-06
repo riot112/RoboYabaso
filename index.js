@@ -101,15 +101,15 @@ function parseInput(rplyToken, inputStr) {
         if (trigger == 'cc') 
         {
           let cctext = null;
-          if (mainMsg[1] != undefined ) cctext = mainMsg[1];
-          return coc7(parseInt(inputStr.split('=')[1]),cctext);
+          if (mainMsg[2] != undefined ) cctext = mainMsg[2];
+          return coc7(mainMsg[1],cctext);
         }
         
         //獎懲骰設定於此
         if (trigger == 'cc1'||trigger == 'cc2'||trigger == 'ccn1'||trigger == 'ccn2'') 
         {
           let cctext = null;
-          if (mainMsg[1] != undefined ) cctext = mainMsg[1];
+          if (mainMsg[2] != undefined ) cctext = mainMsg[2];
           return coc7bp(parseInt(inputStr.split('=')[1]),parseInt(inputStr.split('(')[1]),cctext);
         }
         
@@ -118,7 +118,7 @@ function parseInput(rplyToken, inputStr) {
         {
           let cctext = null;
           if (mainMsg[2] != undefined ) cctext = mainMsg[2];
-          return coc6(parseInt(mainMsg[1]),cctext);
+          return coc6(mainMsg[1],cctext);
         }
         if (trigger == 'help') return randomReply() + '\n' + '\
 【擲骰BOT】你可以在聊天中進行自定義的擲骰 \
