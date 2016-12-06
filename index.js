@@ -98,7 +98,7 @@ function parseInput(rplyToken, inputStr) {
         if (trigger.match('鴨霸獸') != null) return randomReply() ;
         
         //cc指令開始於此
-        if (trigger.split('=')[0] == 'cc<') 
+        if (trigger == 'cc') 
         {
           let cctext = null;
           if (mainMsg[1] != undefined ) cctext = mainMsg[1];
@@ -106,7 +106,7 @@ function parseInput(rplyToken, inputStr) {
         }
         
         //獎懲骰設定於此
-        if (trigger.split('=')[0] == 'cc(1)<'||inputStr.split('=')[0] == 'cc(2)<'||inputStr.split('=')[0] == 'cc(-1)<'||inputStr.split('=')[0] == 'cc(-2)<') 
+        if (trigger == 'cc1'||trigger == 'cc2'||trigger == 'ccn1'||trigger == 'ccn2'') 
         {
           let cctext = null;
           if (mainMsg[1] != undefined ) cctext = mainMsg[1];
@@ -114,11 +114,11 @@ function parseInput(rplyToken, inputStr) {
         }
         
         //ccb指令開始於此
-       if (trigger.split('=')[0] == 'ccb<') 
+       if (trigger == 'ccb') 
         {
           let cctext = null;
-          if (mainMsg[1] != undefined ) cctext = mainMsg[1];
-          return coc6(parseInt(inputStr.split('=')[1]),cctext);
+          if (mainMsg[1] != undefined ) cctext = mainMsg[2];
+          return coc6(parseInt(mainMsg[1],cctext);
         }
         if (trigger == 'help') return randomReply() + '\n' + '\
 【擲骰BOT】你可以在聊天中進行自定義的擲骰 \
