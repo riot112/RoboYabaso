@@ -83,7 +83,7 @@ function replyMsgToLine(rplyToken, rplyVal) {
   request.end(rplyJson);
 }
 
-function parseInput(rplyToken, inputStr, inputStrO) {
+function parseInput(rplyToken, inputStr) {
         
         console.log('InputStr: ' + inputStr);
         let msgSplitor = ' ';        
@@ -100,15 +100,15 @@ function parseInput(rplyToken, inputStr, inputStrO) {
           return isNaN(parseInt(obj));
         }                   
         //鴨霸獸指令開始於此
-        if (inputStr.match('help') != null) return randomReply() + '\n' + '\
+        if (trigger.match('help') != null) return randomReply() + '\n' + '\
 總之你要擲骰前就先打r，後面接像是2d6，1d6+3，2d6+1d3之類的就好。  \
 \n要多筆輸出就是先空一格再打像是 *5 之類的。  \
 \n如果是CoC系的話，有初步支援cc擲骰了，獎懲骰也支援了。 \
 ';
-        if (inputStr.match('鴨霸獸') != null) return randomReply() ;
+        if (trigger.match('鴨霸獸') != null) return randomReply() ;
         
         //cc指令開始於此
-        if (inputStr.split('=')[0] == 'cc<') 
+        if (trigger.split('=')[0] == 'cc<') 
         {
           let cctext = null;
           if (mainMsg[1] != undefined ) cctext = mainMsg[1];
@@ -116,7 +116,7 @@ function parseInput(rplyToken, inputStr, inputStrO) {
         }
         
         //獎懲骰設定於此
-        if (inputStr.split('=')[0] == 'cc(1)<'||inputStr.split('=')[0] == 'cc(2)<'||inputStr.split('=')[0] == 'cc(-1)<'||inputStr.split('=')[0] == 'cc(-2)<') 
+        if (trigger.split('=')[0] == 'cc(1)<'||inputStr.split('=')[0] == 'cc(2)<'||inputStr.split('=')[0] == 'cc(-1)<'||inputStr.split('=')[0] == 'cc(-2)<') 
         {
           let cctext = null;
           if (mainMsg[1] != undefined ) cctext = mainMsg[1];
@@ -124,7 +124,7 @@ function parseInput(rplyToken, inputStr, inputStrO) {
         }
         
         //ccb指令開始於此
-       if (inputStr.split('=')[0] == 'ccb<') 
+       if (trigger.split('=')[0] == 'ccb<') 
         {
           let cctext = null;
           if (mainMsg[1] != undefined ) cctext = mainMsg[1];
