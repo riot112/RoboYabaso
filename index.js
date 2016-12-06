@@ -267,7 +267,8 @@ function ArrMax (Arr){
         function MutiRollDice(DiceToCal,timesNum,text){
           let cuntSplitor = '+';
           let comSplitor = 'd';
-          let CuntArr = DiceToCal.split(cuntSplitor).toString().toLowerCase();
+          let comSplitor = 'D';
+          let CuntArr = DiceToCal.split(cuntSplitor);
           let numMax = CuntArr.length - 1 ; //設定要做的加法的大次數
 
           var count = 0;
@@ -335,7 +336,8 @@ function ArrMax (Arr){
 function NomalRollDice(DiceToCal,text){
     let cuntSplitor = '+';
     let comSplitor = 'd';
-    let CuntArr = DiceToCal.split(cuntSplitor).toString().toLowerCase();
+    let comSplitor = 'D';
+    let CuntArr = DiceToCal.split(cuntSplitor);
     let numMax = CuntArr.length - 1 ; //設定要做的加法的大次數
 
     var count = 0;
