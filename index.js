@@ -118,16 +118,15 @@ function parseInput(rplyToken, inputStr) {
                   
           if (inputStr.split(msgSplitor).length == 1) return '\
 總之你要擲骰前就先打r 或cc，後面接像是2d6，1d6+3，2d6+1d3就好。  \
-\n詳情請打help;
+\n詳情請打help\
+          ';
           //ccb指令開始於此
        if (trigger == 'ccb') return coc6(mainMsg[1],mainMsg[2]);
           
         //cc指令開始於此
         if (trigger == 'cc') return coc7(mainMsg[1],mainMsg[2]);
         
-        //獎懲骰設定於此
-    
-
+        //獎懲骰設定於此    
           if (trigger == 'cc1') return coc7bp(mainMsg[1],'1',mainMsg[2]);        
           if (trigger == 'cc2') return coc7bp(mainMsg[1],'2',mainMsg[2]);   
           if (trigger == 'ccn1') return coc7bp(mainMsg[1],'-1',mainMsg[2]);   
