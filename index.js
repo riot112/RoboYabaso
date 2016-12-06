@@ -104,20 +104,21 @@ function parseInput(rplyToken, inputStr) {
 \n 如上面一樣,在骰子數字後方隔空白位打字,就可以進行發言。\
 \n 以下還有其他例子\
 \n 3D6 *5 ：分別骰出5次3d6\
-\n ・七版判定　CC(x)<=（目標値）\
-\n　x：獎勵骰/懲罰骰：Bonus/Penalty Dice (2～－2)。沒有的話可以省略。\
-\n　致命的失敗：Fumble／失敗：Failure／通常成功：Regular success／\
+\n ・六版判定　CCb （目標値）：做出成功或失敗的判定\
+\n例）CCb 30　CCb 80\
+\n ・七版判定　CCx（目標値）\
+\n　x：獎勵骰/懲罰骰：Bonus/Penalty Dice (2～n2)。沒有的話可以省略。\
+\n　大失敗：Fumble／失敗：Failure／通常成功：Regular success／\
 \n　困難成功：Hard success／極限成功：Extreme success／\
-\n　決定性的成功：Critical success　\
-\n例）CC<=30　CC(2)<=50　CC(-1)<=75\
-\n ・六版判定　CCb<=（目標値）：做出成功或失敗的判定\
+\n　大成功：Critical success　\
+\n例）CC 30　CC1 50　CCn2 75\
 ';
         
         //roll 指令開始於此
         if (trigger == 'r' || trigger == 'ccb' || trigger == 'cc'|| trigger == 'ccn1'|| trigger == 'cc1'|| trigger == 'cc2'|| trigger == 'ccn2' ){        
                   
           if (inputStr.split(msgSplitor).length == 1) return '\
-總之你要擲骰前就先打r 或cc，後面接像是2d6，1d6+3，2d6+1d3就好。  \
+擲骰前請先打r 或cc，後面接像是2d6，1d6+3，2d6+1d3就好。  \
 \n詳情請打help\
           ';
           //ccb指令開始於此
