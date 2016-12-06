@@ -117,8 +117,8 @@ function parseInput(rplyToken, inputStr) {
        if (trigger == 'ccb') 
         {
           let cctext = null;
-          if (mainMsg[1] != undefined ) cctext = mainMsg[2];
-          return coc6(parseInt(mainMsg[1],cctext);
+          if (mainMsg[2] != undefined ) cctext = mainMsg[2];
+          return coc6(parseInt(mainMsg[1]),cctext);
         }
         if (trigger == 'help') return randomReply() + '\n' + '\
 【擲骰BOT】你可以在聊天中進行自定義的擲骰 \
