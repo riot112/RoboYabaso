@@ -86,10 +86,11 @@ function replyMsgToLine(rplyToken, rplyVal) {
 function parseInput(rplyToken, inputStr, inputStrO) {
         
         console.log('InputStr: ' + inputStr);
-        let msgSplitor = ' ';
-        var inputStr = inputStr.toString().toLowerCase();
+        let msgSplitor = ' ';        
+        //var inputStr = inputStr.toString().toLowerCase(); //把大階強制轉成細階
         let mainMsg = inputStr.split(msgSplitor); //定義輸入字串，以空格切開
-        let trigger = mainMsg[0]; //指定啟動詞在第一個詞
+        //var inputStr = inputStr.toString().toLowerCase(); //把大階強制轉成細階
+        let trigger = mainMsg[0].toString().toLowerCase(); //指定啟動詞在第一個詞
         
         
 
@@ -102,7 +103,6 @@ function parseInput(rplyToken, inputStr, inputStrO) {
         if (inputStr.match('help') != null) return randomReply() + '\n' + '\
 總之你要擲骰前就先打r，後面接像是2d6，1d6+3，2d6+1d3之類的就好。  \
 \n要多筆輸出就是先空一格再打像是 *5 之類的。  \
-\n不要打成大寫D，不要逼我嗆你 \
 \n如果是CoC系的話，有初步支援cc擲骰了，獎懲骰也支援了。 \
 ';
         if (inputStr.match('鴨霸獸') != null) return randomReply() ;
