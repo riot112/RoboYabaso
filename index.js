@@ -98,27 +98,27 @@ function parseInput(rplyToken, inputStr) {
         if (trigger.match('鴨霸獸') != null) return randomReply() ;
         
         //cc指令開始於此
-        if (trigger == 'cc') 
+        if (trigger.split('=')[0] == 'cc<') 
         {
           let cctext = null;
-          if (mainMsg[2] != undefined ) cctext = mainMsg[2];
-          return coc7(mainMsg[1],cctext);
+          if (mainMsg[1] != undefined ) cctext = mainMsg[1];
+          return coc7(parseInt(inputStr.split('=')[1]),cctext);
         }
         
         //獎懲骰設定於此
-        if (trigger == 'cc1'||trigger == 'cc2'||trigger == 'ccn1'||trigger == 'ccn2'') 
+        if (trigger.split('=')[0] == 'cc(1)<'||inputStr.split('=')[0] == 'cc(2)<'||inputStr.split('=')[0] == 'cc(-1)<'||inputStr.split('=')[0] == 'cc(-2)<') 
         {
           let cctext = null;
-          if (mainMsg[2] != undefined ) cctext = mainMsg[2];
+          if (mainMsg[1] != undefined ) cctext = mainMsg[1];
           return coc7bp(parseInt(inputStr.split('=')[1]),parseInt(inputStr.split('(')[1]),cctext);
         }
         
         //ccb指令開始於此
-       if (trigger == 'ccb') 
+       if (trigger.split('=')[0] == 'ccb<') 
         {
           let cctext = null;
-          if (mainMsg[2] != undefined ) cctext = mainMsg[2];
-          return coc6(mainMsg[1],cctext);
+          if (mainMsg[1] != undefined ) cctext = mainMsg[1];
+          return coc6(parseInt(inputStr.split('=')[1]),cctext);
         }
         if (trigger == 'help') return randomReply() + '\n' + '\
 【擲骰BOT】你可以在聊天中進行自定義的擲骰 \
