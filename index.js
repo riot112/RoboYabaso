@@ -87,10 +87,8 @@ function parseInput(rplyToken, inputStr) {
         
         console.log('InputStr: ' + inputStr);
         let msgSplitor = ' ';        
-        //var inputStr = inputStr.toString().toLowerCase(); //把大階強制轉成細階
-        let mainMsg = inputStr.split(msgSplitor); //定義輸入字串，以空格切開
-        //var inputStr = inputStr.toString().toLowerCase(); //把大階強制轉成細階
-        let trigger = mainMsg[0].toString().toLowerCase(); //指定啟動詞在第一個詞
+        let mainMsg = inputStr.split(msgSplitor); //定義輸入字串，以空格切開     
+        let trigger = mainMsg[0].toString().toLowerCase(); //指定啟動詞在第一個詞&把大階強制轉成細階
         
         
 
@@ -157,7 +155,7 @@ function parseInput(rplyToken, inputStr) {
         }
         
         
-        if (trigger != 'r' || trigger != 'R') return null;
+        if (trigger != 'r') return null;
         
       }
 
@@ -269,12 +267,12 @@ function ArrMax (Arr){
         function MutiRollDice(DiceToCal,timesNum,text){
           let cuntSplitor = '+';
           let comSplitor = 'd';
-          let CuntArr = DiceToCal.split(cuntSplitor);
+          let CuntArr = DiceToCal.split(cuntSplitor).toString().toLowerCase();
           let numMax = CuntArr.length - 1 ; //設定要做的加法的大次數
 
           var count = 0;
           let countStr = '';
-          if (DiceToCal.match('D') != null) return randomReply() + '\n格式錯啦，d要小寫！';
+          //if (DiceToCal.match('D') != null) return randomReply() + '\n格式錯啦，d要小寫！';
 
           if (text == null) {
             for (let j = 1 ; j <= timesNum ; j++){
@@ -337,12 +335,12 @@ function ArrMax (Arr){
 function NomalRollDice(DiceToCal,text){
     let cuntSplitor = '+';
     let comSplitor = 'd';
-    let CuntArr = DiceToCal.split(cuntSplitor);
+    let CuntArr = DiceToCal.split(cuntSplitor).toString().toLowerCase();
     let numMax = CuntArr.length - 1 ; //設定要做的加法的大次數
 
     var count = 0;
     let countStr = '';
-  if (DiceToCal.match('D') != null) return randomReply() + '\n格式錯啦，d要小寫！';
+ // if (DiceToCal.match('D') != null) return randomReply() + '\n格式錯啦，d要小寫！';
     for (let i = 0; i <= numMax; i++) {
       
       let commandArr = CuntArr[i].split(comSplitor);
