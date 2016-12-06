@@ -114,12 +114,8 @@ function parseInput(rplyToken, inputStr) {
         }
         
         //ccb指令開始於此
-       if (trigger == 'ccb') 
-        {
-          let cctext = null;
-          if (mainMsg[2] != undefined ) cctext = mainMsg[2];
-          return coc6(mainMsg[1]),cctext);
-        }
+       if (trigger == 'ccb') return coc6(mainMsg[1],mainMsg[2]);
+
         if (trigger == 'help') return randomReply() + '\n' + '\
 【擲骰BOT】你可以在聊天中進行自定義的擲骰 \
 \n 例如輸入）r 2d6+1　攻撃！\
