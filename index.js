@@ -95,23 +95,7 @@ function parseInput(rplyToken, inputStr) {
         }                   
         //鴨霸獸指令開始於此
 
-        if (trigger.match('鴨霸獸') != null) return randomReply() ;
-        
-        //cc指令開始於此
-        if (trigger.split('=')[0] == 'cc<') 
-        {
-          let cctext = null;
-          if (mainMsg[1] != undefined ) cctext = mainMsg[1];
-          return coc7(parseInt(inputStr.split('=')[1]),cctext);
-        }
-        
-        //獎懲骰設定於此
-        if (trigger.split('=')[0] == 'cc(1)<'||inputStr.split('=')[0] == 'cc(2)<'||inputStr.split('=')[0] == 'cc(-1)<'||inputStr.split('=')[0] == 'cc(-2)<') 
-        {
-          let cctext = null;
-          if (mainMsg[1] != undefined ) cctext = mainMsg[1];
-          return coc7bp(parseInt(inputStr.split('=')[1]),parseInt(inputStr.split('(')[1]),cctext);
-        }
+        if (trigger.match('鴨霸獸') != null) return randomReply() ;        
         
         if (trigger == 'help') return randomReply() + '\n' + '\
 【擲骰BOT】你可以在聊天中進行自定義的擲骰 \
@@ -130,15 +114,24 @@ function parseInput(rplyToken, inputStr) {
 ';
         
         //roll 指令開始於此
-        if (trigger == 'r' || trigger == 'ccb' ){        
+        if (trigger == 'r' || trigger == 'ccb' || trigger == 'cc'|| trigger == 'ccn1'|| trigger == 'cc1'|| trigger == 'cc2'|| trigger == 'ccn2' ){        
                   
           if (inputStr.split(msgSplitor).length == 1) return '\
-總之你要擲骰前就先打r，後面接像是2d6，1d6+3，2d6+1d3之類的就好。  \
-\n要多筆輸出就是先空一格再打像是 *5 之類的。  \
-\n不要打成大寫D，不要逼我嗆你';
+總之你要擲骰前就先打r 或cc，後面接像是2d6，1d6+3，2d6+1d3就好。  \
+\n詳情請打help;
           //ccb指令開始於此
        if (trigger == 'ccb') return coc6(mainMsg[1],mainMsg[2]);
-  
+          
+        //cc指令開始於此
+        if (trigger == 'cc') return coc7(mainMsg[1],mainMsg[2]);
+        
+        //獎懲骰設定於此
+    
+
+          if (trigger == 'cc1') return coc7bp(mainMsg[1],'1',mainMsg[2]);        
+          if (trigger == 'cc2') return coc7bp(mainMsg[1],'2',mainMsg[2]);   
+          if (trigger == 'ccn1') return coc7bp(mainMsg[1],'-1',mainMsg[2]);   
+          if (trigger == 'ccn2') return coc7bp(mainMsg[1],'-2',mainMsg[2]);   
           if (inputStr.split(msgSplitor).length >= 3){
             
             if (mainMsg[2].split('*').length == 2) {
