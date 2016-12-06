@@ -273,7 +273,7 @@ function ArrMax (Arr){
 
           var count = 0;
           let countStr = '';
-          //if (DiceToCal.match('D') != null) return randomReply() + '\n格式錯啦，d要小寫！';
+          if (DiceToCal.match('D') != null) return randomReply() + '\n格式錯啦，d要小寫！';
 
           if (text == null) {
             for (let j = 1 ; j <= timesNum ; j++){
@@ -341,7 +341,7 @@ function NomalRollDice(DiceToCal,text){
 
     var count = 0;
     let countStr = '';
- // if (DiceToCal.match('D') != null) return randomReply() + '\n格式錯啦，d要小寫！';
+  if (DiceToCal.match('D') != null) return randomReply() + '\n格式錯啦，d要小寫！';
     for (let i = 0; i <= numMax; i++) {
       
       let commandArr = CuntArr[i].split(comSplitor);
