@@ -96,7 +96,7 @@ function parseInput(rplyToken, inputStr) {
         //鴨霸獸指令開始於此
 
         if (trigger.match('鴨霸獸') != null) return randomReply() ;        
-        if (trigger.match('運氣') != null || trigger.match('運勢') != null) return randomLuck(trigger) ; //占卜運氣        
+        if (trigger.match('運氣') != null || trigger.match('運勢') != null) return randomLuck(mainMsg) ; //占卜運氣        
         
         if (trigger == 'help') return randomReply() + '\n' + '\
 【擲骰BOT】你可以在聊天中進行自定義的擲骰 \
@@ -382,5 +382,5 @@ return DiceToCal + ' → ' + countStr;
         }
        function randomLuck(TEXT) {
           let rplyArr = ['大吉','吉','中吉','小吉','末吉','凶'];
-          return TEXT + ' ： ' + rplyArr[Math.floor((Math.random() * (rplyArr.length)) + 0)];
+          return TEXT[0] + ' ： ' + rplyArr[Math.floor((Math.random() * (rplyArr.length)) + 0)];
         }
