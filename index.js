@@ -382,5 +382,5 @@ return DiceToCal + ' → ' + countStr;
         }
        function randomLuck(TEXT) {
           let rplyArr = ['大吉','吉','中吉','小吉','末吉','凶'];
-          return TEXT[0] + ' ： ' + rplyArr[Math.floor((Math.random() * (rplyArr.length)) + 0)];
+          return TEXT + ' ： ' + rplyArr[Math.floor((Math.random() * (rplyArr.length)) + 0)];
         }
