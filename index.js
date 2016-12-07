@@ -140,12 +140,12 @@ function parseInput(rplyToken, inputStr) {
               let tempArr = mainMsg[2].split('*');
               let text = inputStr.split(msgSplitor)[3];
               //secCommand = parseInt(tempArr[1]);
-              return MutiRollDice(mainMsg[1],parseInt(tempArr[1]),text);
+              return MutiRollDice(mainMsg[1].toString().toLowerCase(),parseInt(tempArr[1]),text);
             }
-            return NomalRollDice(mainMsg[1],mainMsg[2]);
+            return NomalRollDice(mainMsg[1].toString().toLowerCase(),mainMsg[2]);
           }
           if (inputStr.split(msgSplitor).length == 2){
-            return NomalRollDice(mainMsg[1],mainMsg[2]);
+            return NomalRollDice(mainMsg[1].toString().toLowerCase(),mainMsg[2]);
           }
           
           
@@ -265,7 +265,7 @@ function ArrMax (Arr){
           let cuntSplitor = '+';
           let comSplitor = 'd';
           
-          let CuntArr = DiceToCal.split(cuntSplitor).toLowerCase();
+          let CuntArr = DiceToCal.split(cuntSplitor);
           let numMax = CuntArr.length - 1 ; //設定要做的加法的大次數
 
           var count = 0;
@@ -333,7 +333,7 @@ function ArrMax (Arr){
 function NomalRollDice(DiceToCal,text){
     let cuntSplitor = '+';
     let comSplitor = 'd';
-    let CuntArr = DiceToCal.split(cuntSplitor).toLowerCase();
+    let CuntArr = DiceToCal.split(cuntSplitor);
     let numMax = CuntArr.length - 1 ; //設定要做的加法的大次數
 
     var count = 0;
