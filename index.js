@@ -265,12 +265,12 @@ function ArrMax (Arr){
           let cuntSplitor = '+';
           let comSplitor = 'd';
           
-          let CuntArr = DiceToCal.split(cuntSplitor);
+          let CuntArr = DiceToCal.split(cuntSplitor).toLowerCase();
           let numMax = CuntArr.length - 1 ; //設定要做的加法的大次數
 
           var count = 0;
           let countStr = '';
-          if (DiceToCal.match('D') != null) return randomReply() + '\n格式錯啦，d要小寫！';
+    //      if (DiceToCal.match('D') != null) return randomReply() + '\n格式錯啦，d要小寫！';
 
           if (text == null) {
             for (let j = 1 ; j <= timesNum ; j++){
@@ -333,12 +333,12 @@ function ArrMax (Arr){
 function NomalRollDice(DiceToCal,text){
     let cuntSplitor = '+';
     let comSplitor = 'd';
-    let CuntArr = DiceToCal.split(cuntSplitor);
+    let CuntArr = DiceToCal.split(cuntSplitor).toLowerCase();
     let numMax = CuntArr.length - 1 ; //設定要做的加法的大次數
 
     var count = 0;
     let countStr = '';
-  if (DiceToCal.match('D') != null) return randomReply() + '\n格式錯啦，d要小寫！';
+//  if (DiceToCal.match('D') != null) return randomReply() + '\n格式錯啦，d要小寫！';
     for (let i = 0; i <= numMax; i++) {
       
       let commandArr = CuntArr[i].split(comSplitor);
