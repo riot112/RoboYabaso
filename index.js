@@ -96,11 +96,11 @@ function parseInput(rplyToken, inputStr) {
         //鴨霸獸指令開始於此
 
         if (trigger.match(/鴨霸獸|巴獸/) != null) return randomReply() ;        
-        if (trigger.match('運氣') != null || trigger.match('運勢') != null) return randomLuck(mainMsg) ; //占卜運氣        
+        if (trigger.match(/運氣|運勢/) != null) return randomLuck(mainMsg) ; //占卜運氣        
         
   
   //nc指令開始於此 來自Rainsting/TarotLineBot 
-  if (trigger.match(/^[1-4]+nc/)!= null||trigger.match(/^[1-4]+na/)!= null) return nechronica(trigger,mainMsg[1]);
+  if (trigger.match(/^[1-4]n[c|a][+|-][1-99]$|^[1-4]n[c|a]$/)!= null||trigger.match(/^[1-4]+na/)!= null) return nechronica(trigger,mainMsg[1]);
 
   
   if (trigger == 'help'||trigger == '幫助') return randomReply() + '\n' + '\
