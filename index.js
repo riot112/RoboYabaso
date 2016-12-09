@@ -103,22 +103,22 @@ function parseInput(rplyToken, inputStr) {
   if (trigger.match(/^[1-4]+nc/)!= null||trigger.match(/^[1-4]+na/)!= null) return nechronica(trigger,mainMsg[1]);
 
   
-  if (trigger == 'help') return randomReply() + '\n' + '\
+  if (trigger == 'help'||trigger == '幫助') return randomReply() + '\n' + '\
 【擲骰BOT】你可以在聊天中進行自定義的擲骰 \
 \n 例如輸入）r 2d6+1　攻撃！\
 \n 會輸出）2d6+1 → 4+3+1=8；攻擊\
 \n 如上面一樣,在骰子數字後方隔空白位打字,就可以進行發言。\
 \n 以下還有其他例子\
-\n 3D6 *5 ：分別骰出5次3d6\
+\n r 3D6 *5 ：分別骰出5次3d6\
 \n ・六版判定　CCb （目標値）：做出成功或失敗的判定\
 \n例）CCb 30　CCb 80\
 \n ・七版判定　CCx（目標値）\
-\n　x：獎勵骰/懲罰骰：Bonus/Penalty Dice (2～n2)。沒有的話可以省略。\
-\n　大失敗：Fumble／失敗：Failure／通常成功：Regular success／\
-\n　困難成功：Hard success／極限成功：Extreme success／\
-\n　大成功：Critical success　\
+\n　x：獎勵骰/懲罰骰 (2～n2)。沒有的話可以省略。\
 \n例）CC 30　CC1 50　CCn2 75\
 \n・占卜運氣功能\
+\n・NC 擲骰\
+\n(骰數)NC/NA (問題)\
+\n 例如 1NC 2Na+4 3na-2\
 ';
         
         //roll 指令開始於此
