@@ -39,7 +39,7 @@ app.post('/', jsonParser, function(req, res) {
       rplyVal = parseInput(rplyToken, msg); 
     } 
     catch(e) {
-      
+      rplyVal = randomReply();
     }
   }
 
@@ -100,7 +100,7 @@ function parseInput(rplyToken, inputStr) {
         
   
   //nc指令開始於此 來自Rainsting/TarotLineBot 
-  if (trigger.match(/^[1-4]n[c|a][+|-][1-9]$|^[1-4]n[c|a][+|-][1-9][1-9]$|^[1-4]n[c|a]$/)!= null ) return nechronica(trigger,mainMsg[1]);
+  if (trigger.match(/^[1-4]n[c|a][+|-][1-99]$|^[1-4]n[c|a]$/)!= null ) return nechronica(trigger,mainMsg[1]);
 
   
   if (trigger.match(/help|幫助/)!= null ) return randomReply() + '\n' + '\
@@ -120,9 +120,9 @@ function parseInput(rplyToken, inputStr) {
 \n(骰數)NC/NA (問題)\
 \n 例如 1NC 2Na+4 3na-2\
 ';
-        	
+        
         //roll 指令開始於此
-        if (trigge.match(/^r$|^ccb$|^cc$|^ccn[1-2]$|^cc[1-2]$/)!= null){        
+        if (trigger == 'r' || trigger == 'ccb' || trigger == 'cc'|| trigger == 'ccn1'|| trigger == 'cc1'|| trigger == 'cc2'|| trigger == 'ccn2' ){        
                   
           if (inputStr.split(msgSplitor).length == 1) return '\
 擲骰前請先打r 或cc，後面接像是2d6，1d6+3，2d6+1d3就好。  \
@@ -155,7 +155,9 @@ function parseInput(rplyToken, inputStr) {
           
           
         }
-           
+        
+        
+        if (trigger != 'r') return null;
         
       }
 
@@ -438,5 +440,3 @@ function nechronica(triggermsg ,text) {
            let rplyArr = ['超吉','超級上吉','大吉','吉','中吉','小吉','吉','中吉','小吉','末吉','吉','中吉','吉','中吉','吉','中吉','吉','中吉','小吉','末吉','吉','中吉','小吉','末吉','中吉','小吉','小吉','吉','小吉','末吉','中吉','小吉','凶','小凶','沒凶','大凶','很凶'];
            return TEXT[0] + ' ： ' + rplyArr[Math.floor((Math.random() * (rplyArr.length)) + 0)];
         }
-
-
