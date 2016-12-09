@@ -100,10 +100,10 @@ function parseInput(rplyToken, inputStr) {
         
   
   //nc指令開始於此 來自Rainsting/TarotLineBot 
-  if (trigger.match(/^[1-4]+nc|^[1-4]+na/)!= null) return nechronica(trigger,mainMsg[1]);
+  if (trigger.match(/^[1-4]n[c|a][+|-][1-99]$|^[1-4]n[c|a]$/)!= null) return nechronica(trigger,mainMsg[1]);
 
   
-  if (trigger == 'help'||trigger == '幫助') return randomReply() + '\n' + '\
+  if (trigger.match(/^help$|^幫助$/) return randomReply() + '\n' + '\
 【擲骰BOT】你可以在聊天中進行自定義的擲骰 \
 \n 例如輸入）r 2d6+1　攻撃！\
 \n 會輸出）2d6+1 → 4+3+1=8；攻擊\
@@ -122,7 +122,7 @@ function parseInput(rplyToken, inputStr) {
 ';
         
         //roll 指令開始於此
-        if (trigger == 'r' || trigger == 'ccb' || trigger == 'cc'|| trigger == 'ccn1'|| trigger == 'cc1'|| trigger == 'cc2'|| trigger == 'ccn2' ){        
+        if (trigger.match(/^r$|^ccb$| ^cc$ | ^ccn[1-2]$ | ^cc[1-2]$/){        
                   
           if (inputStr.split(msgSplitor).length == 1) return '\
 擲骰前請先打r 或cc，後面接像是2d6，1d6+3，2d6+1d3就好。  \
