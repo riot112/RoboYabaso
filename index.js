@@ -157,7 +157,7 @@ function parseInput(rplyToken, inputStr) {
         }
         
         
-        if (trigger != 'r') return null;
+       
         
       }
 
