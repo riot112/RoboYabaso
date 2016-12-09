@@ -103,7 +103,7 @@ function parseInput(rplyToken, inputStr) {
   if (trigger.match(/^[1-4]+nc|^[1-4]+na/)!= null) return nechronica(trigger,mainMsg[1]);
 
   
-  if (trigger == /help||幫助/ return randomReply() + '\n' + '\
+  if (trigger == (/help||幫助/) return randomReply() + '\n' + '\
 【擲骰BOT】你可以在聊天中進行自定義的擲骰 \
 \n 例如輸入）r 2d6+1　攻撃！\
 \n 會輸出）2d6+1 → 4+3+1=8；攻擊\
