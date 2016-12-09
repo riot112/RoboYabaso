@@ -442,5 +442,5 @@ function nechronica(triggermsg ,text) {
         }
 
 function theend() {
-return null;
+
 }
