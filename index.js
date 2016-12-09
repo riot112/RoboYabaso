@@ -98,7 +98,12 @@ function parseInput(rplyToken, inputStr) {
         if (trigger.match('鴨霸獸') != null ||trigger.match('巴獸') != null) return randomReply() ;        
         if (trigger.match('運氣') != null || trigger.match('運勢') != null) return randomLuck(mainMsg) ; //占卜運氣        
         
-        if (trigger == 'help') return randomReply() + '\n' + '\
+  
+  //nc指令開始於此 來自Rainsting/TarotLineBot 
+  if (trigger.match(/^[1-4]+nc/)!= null||trigger.match(/^[1-4]+na/)!= null) return nechronica(trigger,mainMsg[1]);
+
+  
+  if (trigger == 'help') return randomReply() + '\n' + '\
 【擲骰BOT】你可以在聊天中進行自定義的擲骰 \
 \n 例如輸入）r 2d6+1　攻撃！\
 \n 會輸出）2d6+1 → 4+3+1=8；攻擊\
@@ -376,6 +381,56 @@ return DiceToCal + ' → ' + countStr;
           return Math.floor((Math.random() * diceSided) + 1)
         }              
 
+////////////////////////////////////////
+//////////////// nechronica (NC)
+////////////////////////////////////////
+function nechronica(triggermsg ,text) {
+	let returnStr = '';
+	var ncarray = [];
+	var dicemax = 0, dicemin = 0, dicenew = 0;
+
+	var match = /^(\d+)(NC|NA)((\+|-)(\d+)|)$/i.exec(triggermsg);	//判斷式
+
+	for (var i = 0; i < Number(match[1]); i++)	//其實我不太會用 for each
+	{
+		dicenew = Dice(10) + Number(match[3]);
+		ncarray.push(dicenew);
+	}
+
+	dicemax = Math.max(...ncarray);	//判斷最大最小值
+	dicemin = Math.min(...ncarray);
+
+	if (Number(match[1]) == 1)
+		returnStr += dicemax + '[' + ncarray.pop() + ']'; 
+	else
+	{
+		returnStr += dicemax + '[';
+		for (i = 0; i < Number(match[1]); i++)
+		{
+			if (i != Number(match[1]) - 1)
+				returnStr += ncarray.pop() + ',';
+			else
+				returnStr += ncarray.pop();
+		}
+		returnStr += ']';
+	}
+
+	if (dicemax > 5)
+		if (dicemax > 10)
+			returnStr += ' → 大成功';
+		else
+			returnStr += ' → 成功';
+	else
+		if (dicemin <= 1)
+			returnStr += ' → 大失敗';
+		else
+			returnStr += ' → 失敗';
+
+	if (text != null)
+		returnStr += ' ; ' + text;
+
+	return returnStr;
+}
 
         function randomReply() {
           let rplyArr = ['你們死定了呃呃呃不要糾結這些……所以是在糾結哪些？', '在澳洲，每過一分鐘就有一隻鴨嘴獸被拔嘴。 \n我到底在共三小。', '嗚噁噁噁噁噁噁，不要隨便叫我。', '幹，你這學不會的豬！', '嘎嘎嘎。', 'wwwwwwwwwwwwwwwww', '為什麼你們每天都可以一直玩；玩就算了還玩我。', '好棒，整點了！咦？不是嗎？', '不要打擾我挖坑！', '好棒，誤點了！', '在南半球，一隻鴨嘴獸拍打他的鰭，他的嘴就會掉下來。 \n我到底在共三小。', '什麼東西你共三小。', '哈哈哈哈哈哈哈哈！', '一直叫，你4不4想拔嘴人家？', '一直叫，你想被淨灘嗎？', '幫主你也敢嘴？'];
