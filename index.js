@@ -100,7 +100,7 @@ function parseInput(rplyToken, inputStr) {
         
   
   //nc指令開始於此 來自Rainsting/TarotLineBot 
-  if (trigger.match(/^[1-4]n[c|a][+|-][1-99]$|^[1-4]n[c|a]$/)!= null) return nechronica(trigger,mainMsg[1]);
+  if (trigger.match(/^[1-4]n[c|a][+|-][1-99]$|^[1-4]n[c|a]$/) != null) return nechronica(trigger,mainMsg[1]);
 
   
   if (trigger.match(/^help$|^幫助$/) return randomReply() + '\n' + '\
