@@ -100,7 +100,7 @@ function parseInput(rplyToken, inputStr) {
         
   
   //nc指令開始於此 來自Rainsting/TarotLineBot 
-  if (trigger.match(/^[1-4]n[c|a][+|-][1-99]$|^[1-4]n[c|a]$/)!= null ) return nechronica(trigger,mainMsg[1]);
+  if (trigger.match(/^[1-4]n[c|a][+|-][1-9][1-9]$|^[1-4]n[c|a]$/)!= null ) return nechronica(trigger,mainMsg[1]);
 
   
   if (trigger.match(/help|幫助/)!= null ) return randomReply() + '\n' + '\
@@ -120,9 +120,9 @@ function parseInput(rplyToken, inputStr) {
 \n(骰數)NC/NA (問題)\
 \n 例如 1NC 2Na+4 3na-2\
 ';
-        
+        	
         //roll 指令開始於此
-        if (trigger == 'r' || trigger == 'ccb' || trigger == 'cc'|| trigger == 'ccn1'|| trigger == 'cc1'|| trigger == 'cc2'|| trigger == 'ccn2' ){        
+        if (trigge.match(/r|ccb|cc|ccn[1-2]|cc[1-2]/)!= null){        
                   
           if (inputStr.split(msgSplitor).length == 1) return '\
 擲骰前請先打r 或cc，後面接像是2d6，1d6+3，2d6+1d3就好。  \
@@ -157,7 +157,7 @@ function parseInput(rplyToken, inputStr) {
         }
         
         
-        if (trigger != 'r') return null;
+       return null;
         
       }
 
@@ -431,7 +431,7 @@ function nechronica(triggermsg ,text) {
 
 	return returnStr;
 }
-
+	return null;
         function randomReply() {
           let rplyArr = ['你們死定了呃呃呃不要糾結這些……所以是在糾結哪些？', '在澳洲，每過一分鐘就有一隻鴨嘴獸被拔嘴。 \n我到底在共三小。', '嗚噁噁噁噁噁噁，不要隨便叫我。', '幹，你這學不會的豬！', '嘎嘎嘎。', 'wwwwwwwwwwwwwwwww', '為什麼你們每天都可以一直玩；玩就算了還玩我。', '好棒，整點了！咦？不是嗎？', '不要打擾我挖坑！', '好棒，誤點了！', '在南半球，一隻鴨嘴獸拍打他的鰭，他的嘴就會掉下來。 \n我到底在共三小。', '什麼東西你共三小。', '哈哈哈哈哈哈哈哈！', '一直叫，你4不4想拔嘴人家？', '一直叫，你想被淨灘嗎？', '幫主你也敢嘴？'];
           return rplyArr[Math.floor((Math.random() * (rplyArr.length)) + 0)];
