@@ -369,8 +369,8 @@ function NomalRollDice(DiceToCal,text){
     else countStr = count + '；' + text;
   } 
   else {
-    if (text == null ) countStr = countStr.substring(0, countStr.length - 1) + '=' + count;
-    else countStr = countStr.substring(0, countStr.length - 1) + '=' + count + '；' + text;
+    if (text == null ) countStr = countStr.substring(0, countStr.length - 1) + ' = ' + count;
+    else countStr = countStr.substring(0, countStr.length - 1) + ' = ' + count + '；' + text;
   }
 return DiceToCal + ' → ' + countStr;
           
