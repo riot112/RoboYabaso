@@ -122,7 +122,7 @@ function parseInput(rplyToken, inputStr) {
 ';
         
         //roll 指令開始於此
-        if (trigger == 'r' || trigger == 'ccb' || trigger == 'cc'|| trigger == 'ccn1'|| trigger == 'cc1'|| trigger == 'cc2'|| trigger == 'ccn2' ){        
+        if (trigger.match(/^r$|^ccb$|^cc$|^ccn$[1-2]$|^cc[1-2]$/)!= null ){        
                   
           if (inputStr.split(msgSplitor).length == 1) return '\
 擲骰前請先打r 或cc，後面接像是2d6，1d6+3，2d6+1d3就好。  \
