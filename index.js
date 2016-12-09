@@ -110,13 +110,13 @@ function parseInput(rplyToken, inputStr) {
 \n 如上面一樣,在骰子數字後方隔空白位打字,就可以進行發言。\
 \n 以下還有其他例子\
 \n r 3D6 *5 ：分別骰出5次3d6\
-\n ・六版判定　CCb （目標値）：做出成功或失敗的判定\
+\n ・COC六版判定　CCb （目標値）：做出成功或失敗的判定\
 \n例）CCb 30　CCb 80\
-\n ・七版判定　CCx（目標値）\
+\n ・COC七版判定　CCx（目標値）\
 \n　x：獎勵骰/懲罰骰 (2～n2)。沒有的話可以省略。\
 \n例）CC 30　CC1 50　CCn2 75\
 \n・占卜運氣功能\
-\n・NC 擲骰\
+\n・NC 永遠的後日談擲骰\
 \n(骰數)NC/NA (問題)\
 \n 例如 1NC 2Na+4 3na-2\
 ';
@@ -391,7 +391,7 @@ function nechronica(triggermsg ,text) {
 
 	var match = /^(\d+)(NC|NA)((\+|-)(\d+)|)$/i.exec(triggermsg);	//判斷式
 
-	for (var i = 0; i < Number(match[1]); i++)	//其實我不太會用 for each
+	for (var i = 0; i < Number(match[1]); i++)	
 	{
 		dicenew = Dice(10) + Number(match[3]);
 		ncarray.push(dicenew);
