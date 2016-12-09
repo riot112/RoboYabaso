@@ -95,7 +95,7 @@ function parseInput(rplyToken, inputStr) {
         }                   
         //鴨霸獸指令開始於此
 
-        if (trigger.match(/鴨霸獸|巴獸|/) != null ) return randomReply() ;        
+        if (trigger.match(/鴨霸獸|巴獸/) != null ) return randomReply() ;        
         if (trigger.match(/運氣|運勢/) != null ) return randomLuck(mainMsg) ; //占卜運氣        
         
   
