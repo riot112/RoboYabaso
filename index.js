@@ -143,7 +143,11 @@ function parseInput(rplyToken, inputStr) {
         if (trigger.match(/^r$/)!= null )
 	{        
                   
-
+          if (inputStr.split(msgSplitor).length == 1) 
+	  {
+	  return NomalRollDice("1d100",mainMsg[2]); 
+	  }
+		
 	
 	if (inputStr.split(msgSplitor).length >= 3)
 	{
