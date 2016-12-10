@@ -152,7 +152,7 @@ if (inputStr.split(msgSplitor).length == 1 )
                   
           if (inputStr.split(msgSplitor).length == 1) 
 	  {
-	  return NomalRollDice('1d100',mainMsg[2]); 
+	  return NomalRollDice("1d100",mainMsg[2]); 
 	  }
 		
 	
