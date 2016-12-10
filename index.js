@@ -139,7 +139,7 @@ function parseInput(rplyToken, inputStr) {
         if (trigger.match(/^r$/)!= null ){        
                   
           if (inputStr.split(msgSplitor).length == 1) {
-	  let mainMsg[2] = '1d100';
+	  let mainMsg[1] = '1d100';
 		  
  
 	  }
@@ -160,12 +160,11 @@ function parseInput(rplyToken, inputStr) {
           }
           
           
-       
+        // if (trigger != 'r') return null;
 	}	
                
-       // if (trigger != 'r') return null;
-     
-}
+      
+    
 
 function coc6(chack,text){
           let temp = Dice(100);
