@@ -12,7 +12,7 @@ var options = {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer C7TLbB0VbkW9ee9rHzAQ1mxkbDtT6JaWvUwqJKagp/Jcv4thqaz0S1qFsGmigrBDyfCf3ak0QfsZBuKk9XrX7shkSuao1SnM4CX1vrQphARnWVMUTNDMcq5wP2xoml9rJPFMCInqhG/Q1KYr1OZ11QdB04t89/1O/w1cDnyilFU='
+    'Authorization': 'C7TLbB0VbkW9ee9rHzAQ1mxkbDtT6JaWvUwqJKagp/Jcv4thqaz0S1qFsGmigrBDyfCf3ak0QfsZBuKk9XrX7shkSuao1SnM4CX1vrQphARnWVMUTNDMcq5wP2xoml9rJPFMCInqhG/Q1KYr1OZ11QdB04t89/1O/w1cDnyilFU='
   }
 }
 app.set('port', (process.env.PORT || 5000));
@@ -121,8 +121,11 @@ function parseInput(rplyToken, inputStr) {
 \n 例如 1NC 2Na+4 3na-2\
 ';
         
-
-	if (trigger.match(/^ccb$|^cc$|^ccn$[1-2]$|^cc[1-2]$/)!= null )
+	if (trigger.match(/^ccb$|^cc$|^ccn$[1-2]$|^cc[1-2]$/)!= null && inputStr.split(msgSplitor).length == 1) return randomReply() + '\n' + '\
+CC後請輸入目標數字\
+\n 詳情請輸入help\
+';
+if (trigger.match(/^ccb$|^cc$|^ccn$[1-2]$|^cc[1-2]$/)!= null )
 	{       		  
           //ccb指令開始於此
        if (trigger == 'ccb') return coc6(mainMsg[1],mainMsg[2]);
