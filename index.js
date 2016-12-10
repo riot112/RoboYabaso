@@ -1,4 +1,3 @@
-<script>
 var express = require('express');
 var bodyParser = require('body-parser');
 var https = require('https');  
@@ -125,13 +124,7 @@ function parseInput(rplyToken, inputStr) {
         
 
 	if (trigger.match(/^ccb$|^cc$|^ccn$[1-2]$|^cc[1-2]$/)!= null )
-	{       	
-if (inputStr.split(msgSplitor).length == 1 )
-{return  randomReply() + '\n' + '\
-使用CC 請打判定數字 \
-\n 詳情請打Help\
-';
-}
+	{       		  
           //ccb指令開始於此
        if (trigger == 'ccb') return coc6(mainMsg[1],mainMsg[2]);
           
@@ -464,4 +457,3 @@ function nechronica(triggermsg ,text) {
            let rplyArr = ['超吉','超級上吉','大吉','吉','中吉','小吉','吉','中吉','小吉','末吉','吉','中吉','吉','中吉','吉','中吉','吉','中吉','小吉','末吉','吉','中吉','小吉','末吉','中吉','小吉','小吉','吉','小吉','末吉','中吉','小吉','凶','小凶','沒凶','大凶','很凶'];
            return TEXT[0] + ' ： ' + rplyArr[Math.floor((Math.random() * (rplyArr.length)) + 0)];
         }
-</script>
