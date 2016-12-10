@@ -103,7 +103,7 @@ function parseInput(rplyToken, inputStr) {
   if (trigger.match(/^[1-4]n[c|a][+|-][1-99]$|^[1-4]n[c|a]$/)!= null ) return nechronica(trigger,mainMsg[1]);
 
   
-  if (trigger.match(/help|幫助/)!= null ) return randomReply() + '\n' + '\
+  if (trigger.match(/^help$|^幫助$/)!= null ) return randomReply() + '\n' + '\
 【擲骰BOT】你可以在聊天中進行自定義的擲骰 \
 \n 例如輸入）r 2d6+1　攻撃！\
 \n 會輸出）2d6+1 → 4+3+1=8；攻擊\
@@ -121,13 +121,7 @@ function parseInput(rplyToken, inputStr) {
 \n 例如 1NC 2Na+4 3na-2\
 ';
         
-        //roll 指令開始於此
-        if (trigger.match(/^r$|^ccb$|^cc$|^ccn$[1-2]$|^cc[1-2]$/)!= null ){        
-                  
-          if (inputStr.split(msgSplitor).length == 1) return '\
-擲骰前請先打r 或cc，後面接像是2d6，1d6+3，2d6+1d3就好。  \
-\n詳情請打help\
-          ';
+ if (trigger.match(/^ccb$|^cc$|^ccn$[1-2]$|^cc[1-2]$/)!= null ){       		  
           //ccb指令開始於此
        if (trigger == 'ccb') return coc6(mainMsg[1],mainMsg[2]);
           
@@ -139,7 +133,19 @@ function parseInput(rplyToken, inputStr) {
           if (trigger == 'cc2') return coc7bp(mainMsg[1],'2',mainMsg[2]);   
           if (trigger == 'ccn1') return coc7bp(mainMsg[1],'-1',mainMsg[2]);   
           if (trigger == 'ccn2') return coc7bp(mainMsg[1],'-2',mainMsg[2]);   
-          if (inputStr.split(msgSplitor).length >= 3){
+ }
+	
+	        //roll 指令開始於此
+        if (trigger.match(/^r$/)!= null ){        
+                  
+          if (inputStr.split(msgSplitor).length == 1) {
+	  let mainMsg[2] = '1d100';
+		  
+ 
+	  }
+		
+	
+	if (inputStr.split(msgSplitor).length >= 3){
             
             if (mainMsg[2].split('*').length == 2) {
               let tempArr = mainMsg[2].split('*');
@@ -154,12 +160,12 @@ function parseInput(rplyToken, inputStr) {
           }
           
           
-        }
-        
-        
        
-        
-      }
+	}	
+               
+       // if (trigger != 'r') return null;
+     
+}
 
 function coc6(chack,text){
           let temp = Dice(100);
