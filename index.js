@@ -148,7 +148,7 @@ function parseInput(rplyToken, inputStr) {
                   
           if (inputStr.split(msgSplitor).length == 1) 
 	  {
-	  return NomalRollDice("1d100",null); 
+	  return NomalRollDice('1d100',mainMsg[2]); 
 	  }
 		
 	
