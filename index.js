@@ -125,12 +125,9 @@ function parseInput(rplyToken, inputStr) {
 
 	if (trigger.match(/^ccb$|^cc$|^ccn$[1-2]$|^cc[1-2]$/)!= null )
 	{       	
-		   if (inputStr.split(msgSplitor).length == 1) 
-	  {
-	  return '\n cc 後請打判定數字\
+		if (inputStr.split(msgSplitor).length == 1) return '\n cc 後請打判定數字\
 \n詳情請打help\		  
 ';
-	  }
           //ccb指令開始於此
        if (trigger == 'ccb') return coc6(mainMsg[1],mainMsg[2]);
           
