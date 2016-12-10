@@ -143,11 +143,7 @@ function parseInput(rplyToken, inputStr) {
         if (trigger.match(/^r$/)!= null )
 	{        
                   
-          if (inputStr.split(msgSplitor).length == 1) 
-	  {
-	  let mainMsg[1] = '1d100';
-	  }
-		
+
 	
 	if (inputStr.split(msgSplitor).length >= 3)
 	{
