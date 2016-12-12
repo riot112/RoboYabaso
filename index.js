@@ -113,11 +113,11 @@ function parseInput(rplyToken, inputStr) {
  
 	if (trigger.match(/^help$|^幫助$/)!= null ) return randomReply() + '\n' + '\
 【擲骰BOT】你可以在聊天中進行自定義的擲骰 \
-\n 例如輸入）r 2d6+1　攻撃！\
+\n 例如輸入）2d6+1　攻撃！\
 \n 會輸出）2d6+1 → 4+3+1=8；攻擊\
 \n 如上面一樣,在骰子數字後方隔空白位打字,就可以進行發言。\
 \n 以下還有其他例子\
-\n r 3D6 *5 ：分別骰出5次3d6\
+\n 3D6 *5 ：分別骰出5次3d6\
 \n ・COC六版判定　CCb （目標値）：做出成功或失敗的判定\
 \n例）CCb 30　CCb 80\
 \n ・COC七版判定　CCx（目標値）\
@@ -155,20 +155,18 @@ if (trigger.match(/^ccb$|^cc$|^ccn$[1-2]$|^cc[1-2]$/)!= null )
 	}
 	
         if (trigger.match(/^r$/)!= null )
-	{        
-if (mainMsg[1].match(/^[d]|[+][d]/) != null)
-{
-          mainMsg[1] = mainMsg[1].replace(/^[d]/gi, "1d");
-        mainMsg[1] = mainMsg[1].replace(/[+][d]/gi, "+1d");
-		
-                  }
 
-                    if (inputStr.split(msgSplitor).length == 1)
-	  {
-            return NomalRollDice('1d100',mainMsg[2]);          
-	  }
-		
-	
+	{        
+		if (mainMsg[1].match(/^[d]|[+][d]/) != null)
+		{  
+			mainMsg[1] = mainMsg[1].replace(/^[d]/gi, "1d");
+			mainMsg[1] = mainMsg[1].replace(/[+][d]/gi, "+1d");
+                 }
+           
+		if (inputStr.split(msgSplitor).length == 1) 
+		{
+			return NomalRollDice("1d100",mainMsg[2]); 
+		}
 	if (inputStr.split(msgSplitor).length >= 3)
 	{
 
@@ -188,15 +186,10 @@ if (mainMsg[1].match(/^[d]|[+][d]/) != null)
 	  }
           
           
-        return NomalRollDice('1d100','');
+       // return NomalRollDice('1d100','');
 	
 	}
 }
-
-
-               
-      
-    
 
 function coc6(chack,text){
           let temp = Dice(100);
