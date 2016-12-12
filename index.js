@@ -163,7 +163,8 @@ if (trigger.match(/^ccb$|^cc$|^ccn$[1-2]$|^cc[1-2]$/)!= null )
                   
           if (inputStr.split(msgSplitor).length == 1) 
 	  {
-	  return NomalRollDice('1d100',mainMsg[2]); 
+   mainMsg[1] = '1d100'
+	  return NomalRollDice(mainMsg[1] ,mainMsg[2]); 
 	  }
 		
 	
