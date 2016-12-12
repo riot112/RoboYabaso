@@ -479,11 +479,9 @@ function nechronica(triggermsg ,text) {
 ////////////////////////////////////////
 
 function wod(triggermsg ,text) {
-	var triggermsg = '3wd8';
 var returnStr = triggermsg + ' [';
 	var varcou = 0;
 	var varsu = 0;
-    var text = "";
 	var match = /^(\d+)(wd|wod)(\d|)((\+|-)(\d+)|)$/i.exec(triggermsg);   //判斷式  [0]3wd8+10,[1]3,[2]wd,[3]8,[4]+10,[5]+,[6]10  
 	if (match[3]<=1) 
     { 
