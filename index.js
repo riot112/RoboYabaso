@@ -157,7 +157,8 @@ if (trigger.match(/^ccb$|^cc$|^ccn$[1-2]$|^cc[1-2]$/)!= null )
 	
         if (trigger.match(/^r$/)!= null )
 	{        
-
+          mainMsg[1] = mainMsg[1].replace(/^[d]/gi, "1d");
+        mainMsg[1] = mainMsg[1].replace(/[+][d]/gi, "+1d");
 		
                   
           if (inputStr.split(msgSplitor).length == 1) 
@@ -168,8 +169,6 @@ if (trigger.match(/^ccb$|^cc$|^ccn$[1-2]$|^cc[1-2]$/)!= null )
 	
 	if (inputStr.split(msgSplitor).length >= 3)
 	{
-            mainMsg[1] = mainMsg[1].replace(/^[d]/gi, "1d");
-		mainMsg[1] = mainMsg[1].replace(/[+][d]/gi, "+1d");
 
             if (mainMsg[2].split('*').length == 2) 
 	    {
