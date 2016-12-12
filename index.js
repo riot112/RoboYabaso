@@ -164,9 +164,9 @@ if (mainMsg[1].match(/^[d]|[+][d]/) != null)
 		
                   }
 
-                    if (inputStr.split(' ').length == 1) return
+                    if (inputStr.split(msgSplitor).length == 1)
 	  {
- return NomalRollDice('1d100','');
+            return NomalRollDice('1d100',mainMsg[2]);          
 	  }
 		
 	
@@ -189,7 +189,7 @@ if (mainMsg[1].match(/^[d]|[+][d]/) != null)
 	  }
           
           
-        if (trigger != 'r') return NomalRollDice('1d100','');;
+        return NomalRollDice('1d100','');
 	
 	}
 }
