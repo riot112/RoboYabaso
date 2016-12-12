@@ -360,20 +360,12 @@ function NomalRollDice(DiceToCal,text){
     let comSplitor = 'd';
     let CuntArr = DiceToCal.split(cuntSplitor);
     let numMax = CuntArr.length - 1 ; //設定要做的加法的大次數
-    var commandArr = 0 ;
     let count = 0;
     let countStr = '';
 //  if (DiceToCal.match('D') != null) return randomReply() + '\n格式錯啦，d要小寫！';
-    for (let i = 0; i <= numMax; i++) {      
-	    if (CuntArr.match(/^[d]/) != null && i == 0) 
-		{
-		commandArr = 1;
-		i++;
-		}		
-		else
-		{
-	 	 commandArr = CuntArr[i].split(comSplitor);		
-		}
+    for (let i = 0; i <= numMax; i++)
+    {      
+	let commandArr = CuntArr[i].split(comSplitor);
       let countOfNum = commandArr[0];
       let randomRange = commandArr[1];
       if (randomRange == null) {
