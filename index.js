@@ -502,7 +502,7 @@ for (var i = 0; i < Number(match[1]); i++)
     for (var i = 0; i < Number(match[6]); i++)	{
 	    varsu++;
     }
-    returnStr = returnStr.replace(/[,][ ]$/,']-> '+varsu+'成功');
+    returnStr = returnStr.replace(/[,][ ]$/,'] → '+varsu+'成功');
 	if (text != null){
 	returnStr += ' ; ' + text;
 	}
