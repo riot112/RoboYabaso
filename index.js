@@ -487,7 +487,7 @@ function wod(triggermsg ,text) {
 	if (match[3] <= 1) 
 
 	{ 
-	return '加骰需要比1大; 
+	return '加骰需要比1大'; 
 	}
 
 	if (match[3] =="") { 
