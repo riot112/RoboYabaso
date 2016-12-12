@@ -161,9 +161,9 @@ if (trigger.match(/^ccb$|^cc$|^ccn$[1-2]$|^cc[1-2]$/)!= null )
         mainMsg[1] = mainMsg[1].replace(/[+][d]/gi, "+1d");
 		
                   
-          if (mainMsg[1] == null) 
+          if (mainMsg[1] == 0) 
 	  {
-	  return NomalRollDice('1d100' ,mainMsg[2]); 
+	  return NomalRollDice("1d100" ,mainMsg[2]); 
 	  }
 		
 	
@@ -186,7 +186,7 @@ if (trigger.match(/^ccb$|^cc$|^ccn$[1-2]$|^cc[1-2]$/)!= null )
 	  }
           
           
-        // if (trigger != 'r') return null;
+        if (trigger != 'r') return null;
 	
 	}
 }
