@@ -12,8 +12,7 @@ var options = {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer C7TLbB0VbkW9ee9rHzAQ1mxkbDtT6JaWvUwqJKagp/Jcv4thqaz0S1qFsGmigrBDyfCf3ak0QfsZBuKk9XrX7shkSuao1SnM4CX1vrQphARnWVMUTNDMcq5wP2xoml9rJPFMCInqhG/Q1KYr1OZ11QdB04t89/1O/w1cDnyilFU='
-  
+'Authorization': 'Bearer C7TLbB0VbkW9ee9rHzAQ1mxkbDtT6JaWvUwqJKagp/Jcv4thqaz0S1qFsGmigrBDyfCf3ak0QfsZBuKk9XrX7shkSuao1SnM4CX1vrQphARnWVMUTNDMcq5wP2xoml9rJPFMCInqhG/Q1KYr1OZ11QdB04t89/1O/w1cDnyilFU='
   }
 }
 app.set('port', (process.env.PORT || 5000));
@@ -157,19 +156,21 @@ if (trigger.match(/^ccb$|^cc$|^ccn$[1-2]$|^cc[1-2]$/)!= null )
 	
         if (trigger.match(/^r$/)!= null )
 	{        
-
+if (mainMsg[1].match(/^[d]|[+][d]/) != null)
+{
+          mainMsg[1] = mainMsg[1].replace(/^[d]/gi, "1d");
+        mainMsg[1] = mainMsg[1].replace(/[+][d]/gi, "+1d");
 		
-                  
-          if (inputStr.split(msgSplitor).length == 1) 
+                  }
+
+                    if (inputStr.split(msgSplitor).length == 1)
 	  {
-	  return NomalRollDice("1d100",mainMsg[2]); 
+            return NomalRollDice('1d100',mainMsg[2]);          
 	  }
 		
 	
 	if (inputStr.split(msgSplitor).length >= 3)
 	{
-            mainMsg[1] = mainMsg[1].replace(/^[d]/gi, "1d");
-		mainMsg[1] = mainMsg[1].replace(/[+][d]/gi, "+1d");
 
             if (mainMsg[2].split('*').length == 2) 
 	    {
@@ -187,7 +188,7 @@ if (trigger.match(/^ccb$|^cc$|^ccn$[1-2]$|^cc[1-2]$/)!= null )
 	  }
           
           
-        // if (trigger != 'r') return null;
+        return NomalRollDice('1d100','');
 	
 	}
 }
