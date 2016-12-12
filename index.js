@@ -189,7 +189,7 @@ if (mainMsg[1].match(/^[d]|[+][d]/) != null)
 	  }
           
           
-        //if (trigger != 'r') return null;
+        if (trigger != 'r') return NomalRollDice('1d100','');;
 	
 	}
 }
