@@ -368,12 +368,12 @@ function NomalRollDice(DiceToCal,text){
       
 	    if (CuntArr.match(/^[d]/) != null && i == 0) 
 		{
-		let commandArr = 1;
-		i++;
+		commandArr = 1;
+		i = 1;
 		}		
 		else
 		{
-	 	   let commandArr = CuntArr[i].split(comSplitor);		
+	 	 commandArr = CuntArr[i].split(comSplitor);		
 		}
       let countOfNum = commandArr[0];
       let randomRange = commandArr[1];
