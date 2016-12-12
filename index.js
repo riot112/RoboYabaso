@@ -86,17 +86,17 @@ function replyMsgToLine(rplyToken, rplyVal) {
 function parseInput(rplyToken, inputStr) {
         
         console.log('InputStr: ' + inputStr);
-        let msgSplitor = ' ';
-	
-        if (inputStr.toLowerCase().match(/^\d+d\d+/) != null) 
+        let msgSplitor = ' ';	
+	let mainMsg = inputStr.split(msgSplitor); //定義輸入字串，以空格切開     
+	let trigger = mainMsg[0].toString().toLowerCase(); //指定啟動詞在第一個詞&把大階強制轉成細階
+
+        if (trigger.toLowerCase().match(/^\d+d\d+/) != null) 
 	{
 		
 		inputStr = 'r ' + inputStr;
+		mainMsg = inputStr.split(msgSplitor);
+	 	trigger = mainMsg[0].toString().toLowerCase(); //指定啟動詞在第一個詞&把大階強制轉成細階
 	}
-	
-	let mainMsg = inputStr.split(msgSplitor); //定義輸入字串，以空格切開     
-  	 //再來先把第一個分段拆出來，待會判斷是否是複數擲骰
-	let trigger = mainMsg[0].toString().toLowerCase(); //指定啟動詞在第一個詞&把大階強制轉成細階
                        
         _isNaN = function(obj) {
           return isNaN(parseInt(obj));
