@@ -366,7 +366,21 @@ function NomalRollDice(DiceToCal,text){
 //  if (DiceToCal.match('D') != null) return randomReply() + '\n格式錯啦，d要小寫！';
     for (let i = 0; i <= numMax; i++) {
       
-      let commandArr = CuntArr[i].split(comSplitor);
+
+	    if (CuntArr.match(/^[d]/ == null && i =0) 
+		{
+		let commandArr = "1";	
+		}
+		else
+		{
+		if (CuntArr.match(/^[d]/ == null) 
+		    {		
+		let commandArr = CuntArr[i+1].split(comSplitor);
+		    }			
+		else
+		{
+	    let commandArr = CuntArr[i].split(comSplitor);		
+		}
       let countOfNum = commandArr[0];
       let randomRange = commandArr[1];
       if (randomRange == null) {
