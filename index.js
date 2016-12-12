@@ -484,15 +484,15 @@ function wod(triggermsg ,text) {
 	var varcou = 0;
     var varsu = 0;
 	var match = /^(\d+)(wd|wod)(\d|)((\+|-)(\d+)|)$/i.exec(triggermsg);   //判斷式  [0]3wd8+10,[1]3,[2]wd,[3]8,[4]+10,[5]+,[6]10  
-
+if (match[3]<="6") { match[3] =10 }
 			
 for (var i = 0; i < Number(match[1]); i++)	
 	{
              varcou =  Math.floor(Math.random() * 10) + 1;
              returnStr += varcou +', ';
-             if (match[3]=="") { match[3] =10 }
-             if (varcou >=match[3]) { i--}
-             if (varcou >=8) 
+             if (match[3]=="") { match[3] =10 ;}
+             if (varcou >=match[3]) { i--;}
+             if (varcou <=4) return  null;
 	     {
 		     varsu++;
 	     }
