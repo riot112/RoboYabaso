@@ -39,7 +39,7 @@ app.post('/', jsonParser, function(req, res) {
       rplyVal = parseInput(rplyToken, msg); 
     } 
     catch(e) {
-      rplyVal = randomReply();
+      console.log('catch error');
     }
   }
 
