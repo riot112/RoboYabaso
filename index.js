@@ -157,7 +157,7 @@ if (trigger.match(/^ccb$|^cc$|^ccn$[1-2]$|^cc[1-2]$/)!= null )
 	
         if (trigger.match(/^r$/)!= null )
 	{        
-if (mainMsg[1].replace(/^[d]|[+][d]/) != null)
+if (mainMsg[1].match(/^[d]|[+][d]/) != null)
 {
           mainMsg[1] = mainMsg[1].replace(/^[d]/gi, "1d");
         mainMsg[1] = mainMsg[1].replace(/[+][d]/gi, "+1d");
