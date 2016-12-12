@@ -369,7 +369,7 @@ function NomalRollDice(DiceToCal,text){
 
 	    if (CuntArr.match(/^[d]/ == null && i =0) 
 		{
-		let commandArr = "1";	
+		let commandArr = '1';	
 		i++;
 		}		
 		else
