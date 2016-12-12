@@ -122,10 +122,13 @@ function parseInput(rplyToken, inputStr) {
 \n ・COC七版判定　CCx（目標値）\
 \n　x：獎勵骰/懲罰骰 (2～n2)。沒有的話可以省略。\
 \n例）CC 30　CC1 50　CCn2 75\
-\n・占卜運氣功能\
+\n・占卜運氣功能 字句中包括運氣即可\
 \n・NC 永遠的後日談擲骰\
 \n(骰數)NC/NA (問題)\
 \n 例如 1NC 2Na+4 3na-2\
+\n・WOD 黑暗世界擲骰\
+\n(骰數)WOD/Wd(加骰)(+成功數) (問題)\
+\n 例如 2wod 3wd8 15wd9+2\
 ';
         
 	if (trigger.match(/^ccb$|^cc$|^ccn$[1-2]$|^cc[1-2]$/)!= null && inputStr.split(msgSplitor).length == 1) return randomReply() + '\n' + '\
