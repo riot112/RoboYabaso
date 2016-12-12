@@ -150,9 +150,9 @@ if (trigger.match(/^ccb$|^cc$|^ccn$[1-2]$|^cc[1-2]$/)!= null )
 
 	}
 	//wod 指令開始於此
-	if (trigger.match(/^wod$/)!= null && mainMsg[1].match(/^[\d]+[\d]$/) !=null)
+	if (trigger.match(/^(\d+)(wd|wod)(\d|)((\+|-)(\d+)|)$/i)!= null)
 	{        
-	return wod();
+	return wod(trigger,mainMsg[1]);
 	}
 	
         if (trigger.match(/^r$/)!= null )
@@ -478,62 +478,40 @@ function nechronica(triggermsg ,text) {
 ////////////////////////////////////////
 //////////////// WOD
 ////////////////////////////////////////
-/*
-function wod(triggermsg ,text) {
-	let returnStr = '';
-	var wodarray = [];
-	var dicemax = 0, dicemin = 0, dicenew = 0;
 
-	var match = /^(\d+)(wd|wod)(\d|)((\+|-)(\d+)|)$/i.exec(triggermsg);//判斷式  [0]3wd8+10,[1]3,[2]wd,[3]8,[4]+10,[5]+,[6]10  
+function wod(triggermsg ,text) {
+	var returnStr = triggermsg+' [';
+	var wodarray = [];
+	var varcou = 0;
+    var varsu = 0;
+	var match = /^(\d+)(wd|wod)(\d|)((\+|-)(\d+)|)$/i.exec(triggermsg);   //判斷式  [0]3wd8+10,[1]3,[2]wd,[3]8,[4]+10,[5]+,[6]10  
 
 			
 for (var i = 0; i < Number(match[1]); i++)	
 	{
              varcou =  Math.floor(Math.random() * 10) + 1;
-returnStr += varcou +', ';
-if (varcou >=8) 
-{
-varsu++;
-}
+             returnStr += varcou +', ';
+             if (match[3]=="") { match[3] =10 }
+             if (varcou >=match[3]) { i--}
+             if (varcou >=8) 
+	     {
+		     varsu++;
+	     }
 
 	}
-
-	dicemax = Math.max(...wodarray);	//判斷最大最小值
-	dicemin = Math.min(...wodarray);
-
-	if (Number(match[1]) == 1)
-		returnStr += dicemax + '[' + wodarray.pop() + ']'; 
-	else
-	{
-		returnStr += dicemax + '[';
-		for (i = 0; i < Number(match[1]); i++)
-		{
-			if (i != Number(match[1]) - 1)
-				returnStr += ncarray.pop() + ',';
-			else
-				returnStr += ncarray.pop();
-		}
-		returnStr += ']';
+    for (var i = 0; i < Number(match[6]); i++)	{
+	    varsu++;
+    }
+    returnStr = returnStr.replace(/[,][ ]$/,']-> '+varsu+'成功');
+	if (text != null){
+	returnStr += ' ; ' + text;
 	}
-
-	if (dicemax > 5)
-		if (dicemax > 10)
-			returnStr += ' → 大成功';
-		else
-			returnStr += ' → 成功';
-	else
-		if (dicemin <= 1)
-			returnStr += ' → 大失敗';
-		else
-			returnStr += ' → 失敗';
-
-	if (text != null)
-		returnStr += ' ; ' + text;
-
 	return returnStr;
 }
+////////////////////////////////////////
+//////////////// END
+////////////////////////////////////////
 
-*/
         function randomReply() {
           let rplyArr = ['你們死定了呃呃呃不要糾結這些……所以是在糾結哪些？', '在澳洲，每過一分鐘就有一隻鴨嘴獸被拔嘴。 \n我到底在共三小。', '嗚噁噁噁噁噁噁，不要隨便叫我。', '幹，你這學不會的豬！', '嘎嘎嘎。', 'wwwwwwwwwwwwwwwww', '為什麼你們每天都可以一直玩；玩就算了還玩我。', '好棒，整點了！咦？不是嗎？', '不要打擾我挖坑！', '好棒，誤點了！', '在南半球，一隻鴨嘴獸拍打他的鰭，他的嘴就會掉下來。 \n我到底在共三小。', '什麼東西你共三小。', '哈哈哈哈哈哈哈哈！', '一直叫，你4不4想拔嘴人家？', '一直叫，你想被淨灘嗎？', '幫主你也敢嘴？'];
           return rplyArr[Math.floor((Math.random() * (rplyArr.length)) + 0)];
