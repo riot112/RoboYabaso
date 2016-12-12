@@ -145,6 +145,9 @@ if (trigger.match(/^ccb$|^cc$|^ccn$[1-2]$|^cc[1-2]$/)!= null )
 	        //roll 指令開始於此
         if (trigger.match(/^r$/)!= null )
 	{        
+
+		inputStr.replace(/^[d]/gi, "1d");
+		inputStr.replace(/[+][d]/gi, "+1d")
                   
           if (inputStr.split(msgSplitor).length == 1) 
 	  {
@@ -358,10 +361,6 @@ function ArrMax (Arr){
 function NomalRollDice(DiceToCal,text){
     let cuntSplitor = '+';
     let comSplitor = 'd';
-		if (DiceToCal.match(/^[d]/) != null) 
-	{
-		DiceToCal = '1'+ DiceToCal;
-	}
     let CuntArr = DiceToCal.split(cuntSplitor);		    
     let numMax = CuntArr.length - 1 ; //設定要做的加法的大次數
     let count = 0;
