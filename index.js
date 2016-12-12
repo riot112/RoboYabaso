@@ -358,29 +358,38 @@ function ArrMax (Arr){
 function NomalRollDice(DiceToCal,text){
     let cuntSplitor = '+';
     let comSplitor = 'd';
-    let CuntArr = DiceToCal.split(cuntSplitor);
+		if (DiceToCal.match(/^[d]/) != null) 
+	{
+		DiceToCal = '1'+ DiceToCal;
+	}
+    let CuntArr = DiceToCal.split(cuntSplitor);		    
     let numMax = CuntArr.length - 1 ; //設定要做的加法的大次數
-
-    var count = 0;
+    let count = 0;
+    let commandArr =0;
     let countStr = '';
+
+	
 //  if (DiceToCal.match('D') != null) return randomReply() + '\n格式錯啦，d要小寫！';
-    for (let i = 0; i <= numMax; i++) {
-      
-      let commandArr = CuntArr[i].split(comSplitor);
+    for (let i = 0; i <= numMax; i++)
+    {      	
+	    commandArr = CuntArr[i].split(comSplitor);		
       let countOfNum = commandArr[0];
       let randomRange = commandArr[1];
-      if (randomRange == null) {
+      if (randomRange == null) 
+      {
         let temp = parseInt(countOfNum);
         countStr = countStr + temp + '+';
         count += temp; 
        }
-       else{
+       else
+       {
           
         for (let idx = 1; idx <= countOfNum; idx ++) {
           let temp = Dice(randomRange);
           countStr = countStr + temp + '+';
           count += temp; 
-        }      }
+	}      
+       }    
     }
   
     
