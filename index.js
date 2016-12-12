@@ -164,9 +164,9 @@ if (mainMsg[1].match(/^[d]|[+][d]/) != null)
 		
                   }
 
-          if (inputStr.split(msgSplitor).length ==  1) 
+                    if (inputStr.split(msgSplitor).length == 1) return
 	  {
-	  return NomalRollDice("1d100" ,mainMsg[2]); 
+ return NomalRollDice("1d100","");
 	  }
 		
 	
