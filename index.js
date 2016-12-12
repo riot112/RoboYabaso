@@ -370,13 +370,8 @@ function NomalRollDice(DiceToCal,text){
 	    if (CuntArr.match(/^[d]/ == null && i =0) 
 		{
 		let commandArr = "1";	
-		}
-		else
-		{
-		if (CuntArr.match(/^[d]/ == null) 
-		    {		
-		let commandArr = CuntArr[i+1].split(comSplitor);
-		    }			
+		i++;
+		}		
 		else
 		{
 	    let commandArr = CuntArr[i].split(comSplitor);		
