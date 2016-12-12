@@ -146,8 +146,8 @@ if (trigger.match(/^ccb$|^cc$|^ccn$[1-2]$|^cc[1-2]$/)!= null )
         if (trigger.match(/^r$/)!= null )
 	{        
 
-		inputStr.replace(/^[d]/gi, "1d");
-		inputStr.replace(/[+][d]/gi, "+1d")
+		mainMsg[1].replace(/^[d]/gi, "1d");
+		mainMsg[1].replace(/[+][d]/gi, "+1d")
                   
           if (inputStr.split(msgSplitor).length == 1) 
 	  {
