@@ -82,6 +82,9 @@ function replyMsgToLine(rplyToken, rplyVal) {
   request.end(rplyJson);
 }
 
+////////////////////////////////////////
+//////////////// 分析開始
+////////////////////////////////////////
 function parseInput(rplyToken, inputStr) {
         
         console.log('InputStr: ' + inputStr);
@@ -89,7 +92,7 @@ function parseInput(rplyToken, inputStr) {
 	let mainMsg = inputStr.split(msgSplitor); //定義輸入字串，以空格切開     
 	let trigger = mainMsg[0].toString().toLowerCase(); //指定啟動詞在第一個詞&把大階強制轉成細階
 
-        if (trigger.match(/^\d+d\d+/) != null && trigger.toLowerCase().match(/\d$/) != null && trigger.match(/[a-c]|[e-z]|[!@#$%^&*()-]/gi) == null) 
+        if (trigger.match(/^\d+d\d+/) != null && trigger.toLowerCase().match(/\d$/) != null && trigger.match(/[a-c]|[e-z]|[!@#$%^.&*()]/gi) == null) 
 	{		
 		inputStr = 'r ' + inputStr;
 		mainMsg = inputStr.split(msgSplitor);
@@ -197,7 +200,9 @@ if (mainMsg[1].match(/^[d]|[+][d]/) != null)
 
 
                
-      
+////////////////////////////////////////
+//////////////// COC6,7
+////////////////////////////////////////      
     
 
 function coc6(chack,text){
@@ -302,7 +307,9 @@ function ArrMax (Arr){
   return max;
 }
         
-
+////////////////////////////////////////
+//////////////// 普通ROLL
+////////////////////////////////////////
         function MutiRollDice(DiceToCal,timesNum,text){
           let cuntSplitor = '+';
           let comSplitor = 'd';
@@ -418,6 +425,9 @@ return DiceToCal + ' → ' + countStr;
           
 }
 
+////////////////////////////////////////
+//////////////// 隨機
+////////////////////////////////////////
 
         function Dice(diceSided){          
           return Math.floor((Math.random() * diceSided) + 1)
