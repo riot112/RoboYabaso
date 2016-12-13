@@ -89,7 +89,7 @@ function parseInput(rplyToken, inputStr) {
 	let mainMsg = inputStr.split(msgSplitor); //定義輸入字串，以空格切開     
 	let trigger = mainMsg[0].toString().toLowerCase(); //指定啟動詞在第一個詞&把大階強制轉成細階
 
-        if (trigger.match(/^\d+d\d+/) != null && trigger.toLowerCase().match(/\d$/) != null && trigger.match(/[a-c]|[e-z]|[!@#$%^&*()-]/gi) == null) 
+        if (trigger.match(/^\d+d\d+/) != null && trigger.toLowerCase().match(/\d$/) != null && trigger.match(/[a-c]|[e-z]|[!@#$%^&*()-.,]/gi) == null) 
 	{		
 		inputStr = 'r ' + inputStr;
 		mainMsg = inputStr.split(msgSplitor);
