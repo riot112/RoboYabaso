@@ -326,9 +326,9 @@ function ArrMax (Arr){
 
     //計算算式
     let aaa = equation;
-	//aaa = aaa.replace(/\d+[[]/, '(' );
-	//aaa = aaa.replace(']', ')' );
-	aaa = aaa.replace(/[[]\d+|]/ig, "");
+	aaa = aaa.replace(/\d+[[]/ig, '(' );
+	aaa = aaa.replace(/]/ig, ')' );
+	//aaa = aaa.replace(/[[]\d+|]/ig, "");
 	let answer = eval(aaa.toString());
 	
     finalStr = finalStr + i + '# ' + equation + ' = ' + answer + '\n';
@@ -355,9 +355,9 @@ function ArrMax (Arr){
   
   //計算算式
 	let aaa = equation;
-	//aaa = aaa.replace(/\d+[[]/, '(' );
-	//aaa = aaa.replace(']', ')' );
-	aaa = aaa.replace(/[[]\d+|]/ig, "");
+	aaa = aaa.replace(/\d+[[]/ig, '(' );
+	aaa = aaa.replace(/]/ig, ')' );
+	//aaa = aaa.replace(/[[]\d+|]/ig, "");
 	let answer = eval(aaa.toString());
       
   if(text1 != null){
