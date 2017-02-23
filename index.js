@@ -320,7 +320,7 @@ function ArrMax (Arr){
  function nomalDiceRoller(inputStr,text0,text1,text2){
   
   //首先判斷是否是誤啟動（檢查是否有符合骰子格式）
-  if (inputStr.toLowerCase().match(/\d+d\d+/) == null) return undefined;
+ // if (inputStr.toLowerCase().match(/\d+d\d+/) == null) return undefined;
   
   //再來先把第一個分段拆出來，待會判斷是否是複數擲骰
   let mutiOrNot = text0.toLowerCase();
@@ -369,6 +369,7 @@ function ArrMax (Arr){
   {
   //一般單次擲骰
   let DiceToRoll = mutiOrNot.toString().toLowerCase();
+  DiceToRoll = DiceToRoll.toLowerCase();
   if (DiceToRoll.match('d') == null) return undefined;
   
   //寫出算式
