@@ -323,7 +323,7 @@ function ArrMax (Arr){
   if (inputStr.toLowerCase().match(/\d+d\d+/) == null) return undefined;
   
   //再來先把第一個分段拆出來，待會判斷是否是複數擲骰
-  let mutiOrNot = text0;
+  let mutiOrNot = text0.toLowerCase();
   
   //排除小數點
   if (mutiOrNot.toString().match(/\./)!=null)return undefined;
@@ -369,7 +369,6 @@ function ArrMax (Arr){
   {
   //一般單次擲骰
   let DiceToRoll = mutiOrNot.toString();
-  
   if (DiceToRoll.match('d') == null) return undefined;
   
   //寫出算式
@@ -1116,6 +1115,7 @@ function tarotCardReply(count) {
 \n 5 3D6 	：分別骰出5次3d6\
 \n D66 D66s ：骰出D66 s小者固定在前\
 \n 5B10：不加總的擲骰 會進行小至大排序 \
+\n 5B10 9：如上,另外計算其中有多少粒大過9 \
 \n 5U10 8：進行5D10 每骰出一粒8會有一粒獎勵骰 \
 \n 5U10 8 9：如上,另外計算其中有多少粒大過9 \
 \n Choice：啓動語choice/隨機/選項/選1\
