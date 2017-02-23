@@ -368,7 +368,7 @@ function ArrMax (Arr){
   else
   {
   //一般單次擲骰
-  let DiceToRoll = mutiOrNot.toString();
+  let DiceToRoll = mutiOrNot.toString().toLowerCase();
   if (DiceToRoll.match('d') == null) return undefined;
   
   //寫出算式
