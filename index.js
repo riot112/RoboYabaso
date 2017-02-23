@@ -320,10 +320,10 @@ function ArrMax (Arr){
  function nomalDiceRoller(inputStr,text0,text1,text2){
   
   //首先判斷是否是誤啟動（檢查是否有符合骰子格式）
-  if (inputStr.toLowerCase().match(/\d+d\d+/) == null) return undefined;
+ // if (inputStr.toLowerCase().match(/\d+d\d+/) == null) return undefined;
   
   //再來先把第一個分段拆出來，待會判斷是否是複數擲骰
-  let mutiOrNot = text0;
+  let mutiOrNot = text0.toLowerCase();
   
   //排除小數點
   if (mutiOrNot.toString().match(/\./)!=null)return undefined;
@@ -368,8 +368,8 @@ function ArrMax (Arr){
   else
   {
   //一般單次擲骰
-  let DiceToRoll = mutiOrNot.toString();
-  
+  let DiceToRoll = mutiOrNot.toString().toLowerCase();
+  DiceToRoll = DiceToRoll.toLowerCase();
   if (DiceToRoll.match('d') == null) return undefined;
   
   //寫出算式
@@ -1108,7 +1108,7 @@ function tarotCardReply(count) {
 
 		function Help() {
 			return randomReply() + '\n' + '\
-【擲骰BOT】v1.22 \
+【擲骰BOT】v1.24 \
 \n 例如輸入2d6+1　攻撃！\
 \n 會輸出）2d6+1：攻撃  9[6+3]+1 = 10\
 \n 如上面一樣,在骰子數字後方隔空白位打字,可以進行發言。\
@@ -1150,5 +1150,3 @@ function tarotCardReply(count) {
 \n  coc7角色背景：啓動語 coc7角色背景\
 ';		
 		}
-		
-		
